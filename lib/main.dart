@@ -16,7 +16,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: ColorApp.mainApp,
+        scaffoldBackgroundColor: ColorApp.secondMainApp,
       ),
       routes: {
         '/Login': (context) => const LoginPage(),

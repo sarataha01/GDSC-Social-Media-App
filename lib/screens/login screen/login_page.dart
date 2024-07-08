@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:gdsc_social_media_app/constants/colors.dart';
 
+import '../../constants/asset_data.dart';
 import 'components/app_name.dart';
 import 'components/divider.dart';
 import 'components/login_form.dart';
@@ -11,24 +14,36 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
+      backgroundColor: ColorApp.mainApp,
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 20.0),
+            padding: const EdgeInsets.symmetric(horizontal: 20.0),
             child: Column(
               children: [
-                AppName(),
-                MyForm(),
-                SizedBox(
+                AppName(
+                  width: 66,
+                  height: 63,
+                  fontSize: 60,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  svgPicture: SvgPicture.asset(
+                    AssetData.logoPath,
+                    width: 60,
+                    height: 60,
+                  ),
+                  sizedBox: 15,
+                ),
+                const MyForm(),
+                const SizedBox(
                   height: 16,
                 ),
-                MyDivider(),
-                SizedBox(
+                const MyDivider(),
+                const SizedBox(
                   height: 16,
                 ),
-                LoginOptions(),
-                Register(),
+                const LoginOptions(),
+                const Register(),
               ],
             ),
           ),

@@ -1,30 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../constants/asset_data.dart';
 import '../../../constants/colors.dart';
 
 class AppName extends StatelessWidget {
-  const AppName({super.key});
+  final double width;
+  final double height;
+  final double fontSize;
+  final double sizedBox;
+  final MainAxisAlignment mainAxisAlignment;
+  final SvgPicture svgPicture;
+  const AppName(
+      {super.key,
+      required this.width,
+      required this.height,
+      required this.sizedBox,
+      required this.fontSize,
+      required this.mainAxisAlignment,
+      required this.svgPicture});
 
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: mainAxisAlignment,
       children: [
-        SvgPicture.asset(
-          AssetData.logoPath,
-          width: 66,
-          height: 63,
+        svgPicture,
+        SizedBox(
+          width: sizedBox,
         ),
-        const SizedBox(
-          width: 15,
-        ),
-        const Text(
+        Text(
           'Social',
           style: TextStyle(
             color: ColorApp.mainText,
-            fontSize: 60,
+            fontSize: fontSize,
             fontWeight: FontWeight.w600,
           ),
         ),
