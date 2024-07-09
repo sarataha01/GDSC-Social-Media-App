@@ -1,38 +1,58 @@
 import 'package:flutter/material.dart';
-import 'package:gdsc_social_media_app/constants/colors.dart';
+import 'package:flutter_svg/svg.dart';
+
+import '../../../constants/asset_data.dart';
+import '../../../constants/clipping/curved_background.dart';
+import '../../login screen/components/app_name.dart';
+import '../components/appbar_actions.dart';
 
 class MySliverAppBar extends StatelessWidget {
-  final Widget? title;
-  final Widget? leading;
-  final List<Widget>? actions;
-  final PreferredSizeWidget? bottom;
-
+  final double height;
   const MySliverAppBar({
     super.key,
-    this.title,
-    this.actions,
-    this.leading,
-    this.bottom,
+    required this.height,
   });
 
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      title: title,
-      backgroundColor: ColorApp.mainApp,
-      actions: actions,
-      leading: leading,
-      bottom: bottom,
-      shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(155),
-          bottomRight: Radius.circular(155),
+      flexibleSpace: FlexibleSpaceBar(
+        background: CurvedBackground(
+          child: Column(
+            children: [
+              AppBar(
+                leading: const DrawerButton(),
+                title: AppName(
+                  width: 50,
+                  height: 30,
+                  fontSize: 30,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  svgPicture: SvgPicture.asset(
+                    AssetData.logo2Path,
+                    width: 20,
+                    height: 20,
+                  ),
+                  sizedBox: 6,
+                ),
+                backgroundColor: Colors.transparent,
+                surfaceTintColor: Colors.transparent,
+                actions: const [
+                  Padding(
+                    padding: EdgeInsets.only(right: 20.0),
+                    child: AppbarActions(),
+                  )
+                ],
+              ),
+              SizedBox(
+                height: height,
+              ),
+            ],
+          ),
         ),
       ),
+      expandedHeight: 150,
       floating: true,
-      pinned: true,
-      snap: true,
-      expandedHeight: 160.0,
+      backgroundColor: Colors.transparent,
     );
   }
 }
