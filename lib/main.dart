@@ -3,6 +3,7 @@ import 'package:gdsc_social_media_app/constants/colors.dart';
 import 'package:gdsc_social_media_app/screens/login%20screen/login_page.dart';
 
 import 'screens/home screen/home_page.dart';
+import 'screens/signup screen/signup_page.dart';
 
 void main() {
   runApp(const App());
@@ -21,6 +22,7 @@ class App extends StatelessWidget {
       routes: {
         '/Login': (context) => const LoginPage(),
         '/Homepage': (context) => const HomePage(),
+        '/Signup': (context) => const SignupPage(),
       },
       initialRoute: '/Homepage',
     );

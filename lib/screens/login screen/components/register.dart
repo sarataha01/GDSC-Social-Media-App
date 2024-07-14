@@ -12,7 +12,9 @@ class Register extends StatelessWidget {
       children: [
         const Text('Don\'t have an account?'),
         TextButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, '/Signup');
+          },
           style: TextButton.styleFrom(foregroundColor: Colors.transparent),
           child: const Text(
             'Register',

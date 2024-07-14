@@ -7,10 +7,12 @@ import '../../login screen/components/app_name.dart';
 import '../components/appbar_actions.dart';
 
 class MySliverAppBar extends StatelessWidget {
-  final double height;
+  final double expandedheight;
+  final Widget? stories;
   const MySliverAppBar({
     super.key,
-    required this.height,
+    this.stories,
+    required this.expandedheight,
   });
 
   @override
@@ -34,8 +36,8 @@ class MySliverAppBar extends StatelessWidget {
                   ),
                   sizedBox: 6,
                 ),
-                backgroundColor: Colors.transparent,
                 surfaceTintColor: Colors.transparent,
+                backgroundColor: Colors.transparent,
                 actions: const [
                   Padding(
                     padding: EdgeInsets.only(right: 20.0),
@@ -43,16 +45,23 @@ class MySliverAppBar extends StatelessWidget {
                   )
                 ],
               ),
-              SizedBox(
-                height: height,
+              const SizedBox(
+                height: 10,
+              ),
+              Container(
+                constraints: BoxConstraints(
+                  maxHeight: expandedheight / 2,
+                ),
+                child: stories != null ? stories! : const SizedBox.shrink(),
               ),
             ],
           ),
         ),
       ),
-      expandedHeight: 150,
+      expandedHeight: expandedheight,
       floating: true,
       backgroundColor: Colors.transparent,
+      surfaceTintColor: Colors.transparent,
     );
   }
 }
