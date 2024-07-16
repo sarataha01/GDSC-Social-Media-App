@@ -5,6 +5,7 @@ import 'components/post_content.dart';
 import 'components/post_interactions.dart';
 import 'components/stories.dart';
 import 'components/user_post_info.dart';
+import 'widgets/circular_button.dart';
 import 'widgets/custom_sliver_app_bar.dart';
 
 class HomePage extends StatelessWidget {
@@ -16,8 +17,21 @@ class HomePage extends StatelessWidget {
       body: CustomScrollView(
         slivers: <Widget>[
           const MySliverAppBar(
-            stories: MyStories(),
+            actions: true,
+            widget: MyStories(),
             expandedheight: 200,
+            overlayWidgets: [
+              Positioned(
+                top: 173,
+                left: 175,
+                child: CircularButton(
+                  icon: Icon(
+                    Icons.add,
+                    color: ColorApp.secondaryText,
+                  ),
+                ),
+              )
+            ],
           ),
           SliverToBoxAdapter(
             child: Padding(
@@ -25,6 +39,9 @@ class HomePage extends StatelessWidget {
               child: Column(
                 children: [
                   for (var i = 0; i <= 20; i++) ...[
+                    const SizedBox(
+                      height: 6,
+                    ),
                     Container(
                       decoration: BoxDecoration(
                         color: ColorApp.mainApp,
@@ -48,7 +65,7 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(
-                      height: 20,
+                      height: 14,
                     ),
                   ]
                 ],

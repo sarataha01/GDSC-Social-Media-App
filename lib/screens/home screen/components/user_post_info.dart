@@ -14,7 +14,9 @@ class UserPostInfo extends StatelessWidget {
       children: [
         CircleAvatar(
           radius: 22,
-          backgroundImage: NetworkImage(GeneralUtils.getUniqueAvatar()),
+          backgroundImage: NetworkImage(
+            GeneralUtils.getUniqueAvatar(),
+          ),
         ),
         const SizedBox(
           width: 11,

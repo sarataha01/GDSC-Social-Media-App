@@ -10,32 +10,41 @@ class AppbarActions extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: BorderRadius.circular(30),
       child: Container(
+        height: 38,
         color: ColorApp.secondButtonColor,
         child: Row(
           children: [
             IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.search_rounded,
-                  color: ColorApp.secondaryText,
-                  size: 30,
-                )),
+              onPressed: () {},
+              icon: const Icon(
+                Icons.search_rounded,
+                color: ColorApp.secondaryText,
+                size: 30,
+              ),
+              padding: EdgeInsets.zero,
+            ),
             IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.notifications_rounded,
-                  color: ColorApp.secondaryText,
-                  size: 30,
-                )),
+              onPressed: () {},
+              icon: const Icon(
+                Icons.notifications_rounded,
+                color: ColorApp.secondaryText,
+                size: 30,
+              ),
+              padding: EdgeInsets.zero,
+            ),
             IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.message_rounded,
-                  color: ColorApp.secondaryText,
-                  size: 30,
-                )),
+              onPressed: () {
+                Navigator.pushNamed(context, '/Messages');
+              },
+              icon: const Icon(
+                Icons.message_rounded,
+                color: ColorApp.secondaryText,
+                size: 30,
+              ),
+              padding: EdgeInsets.zero,
+            ),
           ],
         ),
       ),

@@ -7,55 +7,67 @@ import '../../login screen/components/app_name.dart';
 import '../components/appbar_actions.dart';
 
 class MySliverAppBar extends StatelessWidget {
+  final bool? actions;
   final double expandedheight;
-  final Widget? stories;
+  final Widget? widget;
+  final List<Widget>? overlayWidgets;
+
   const MySliverAppBar({
     super.key,
-    this.stories,
+    this.widget,
     required this.expandedheight,
+    this.overlayWidgets,
+    this.actions,
   });
 
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
       flexibleSpace: FlexibleSpaceBar(
-        background: CurvedBackground(
-          child: Column(
-            children: [
-              AppBar(
-                leading: const DrawerButton(),
-                title: AppName(
-                  width: 50,
-                  height: 30,
-                  fontSize: 30,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  svgPicture: SvgPicture.asset(
-                    AssetData.logo2Path,
-                    width: 20,
-                    height: 20,
+        background: Stack(
+          children: [
+            CurvedBackground(
+              child: Column(
+                children: [
+                  AppBar(
+                    leading: const DrawerButton(),
+                    title: AppName(
+                      width: 50,
+                      height: 30,
+                      fontSize: 30,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      svgPicture: SvgPicture.asset(
+                        AssetData.logo2Path,
+                        width: 20,
+                        height: 20,
+                      ),
+                      sizedBox: 6,
+                    ),
+                    surfaceTintColor: Colors.transparent,
+                    backgroundColor: Colors.transparent,
+                    actions: actions == true
+                        ? const [
+                            Padding(
+                              padding: EdgeInsets.only(right: 20.0),
+                              child: AppbarActions(),
+                            )
+                          ]
+                        : null,
                   ),
-                  sizedBox: 6,
-                ),
-                surfaceTintColor: Colors.transparent,
-                backgroundColor: Colors.transparent,
-                actions: const [
-                  Padding(
-                    padding: EdgeInsets.only(right: 20.0),
-                    child: AppbarActions(),
-                  )
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    constraints: BoxConstraints(
+                      maxHeight: expandedheight / 2,
+                    ),
+                    child: widget != null ? widget! : const SizedBox.shrink(),
+                  ),
                 ],
               ),
-              const SizedBox(
-                height: 10,
-              ),
-              Container(
-                constraints: BoxConstraints(
-                  maxHeight: expandedheight / 2,
-                ),
-                child: stories != null ? stories! : const SizedBox.shrink(),
-              ),
-            ],
-          ),
+            ),
+            if (overlayWidgets != null) ...overlayWidgets!,
+          ],
         ),
       ),
       expandedHeight: expandedheight,
