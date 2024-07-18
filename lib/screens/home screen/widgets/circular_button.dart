@@ -11,16 +11,15 @@ class CircularButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CircleAvatar(
-      radius: 30,
-      backgroundColor: ColorApp.secondMainApp,
-      child: ClipOval(
-        child: Container(
-          width: 40.0,
-          height: 40.0,
-          color: ColorApp.buttonColor,
-          child: IconButton(
-              onPressed: () {}, padding: EdgeInsets.zero, icon: icon),
+    return ClipOval(
+      child: Container(
+        width: 40.0,
+        height: 40.0,
+        color: ColorApp.buttonColor,
+        child: IconButton(
+          onPressed: () {},
+          padding: EdgeInsets.zero,
+          icon: icon,
         ),
       ),
     );

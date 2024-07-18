@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gdsc_social_media_app/constants/colors.dart';
+import 'package:gdsc_social_media_app/screens/chat%20screen/chat_page.dart';
 import 'package:gdsc_social_media_app/screens/login%20screen/login_page.dart';
 import 'package:gdsc_social_media_app/screens/messages%20screen/messages_page.dart';
 
@@ -25,8 +26,9 @@ class App extends StatelessWidget {
         '/Homepage': (context) => const HomePage(),
         '/Signup': (context) => const SignupPage(),
         '/Messages': (context) => const MessagesPage(),
+        '/Chat': (context) => const ChatPage(),
       },
-      initialRoute: '/Messages',
+      initialRoute: '/Chat',
     );
   }
 }

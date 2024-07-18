@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gdsc_social_media_app/constants/app_styles.dart';
 
-import '../../../constants/colors.dart';
 import '../../../util/get_avatar.dart';
 
 class ChatInfo extends StatelessWidget {
@@ -26,15 +26,15 @@ class ChatInfo extends StatelessWidget {
           children: [
             Text(
               'Annyeonghaseyo ',
-              style: TextStyle(fontSize: 16, color: ColorApp.secondaryText),
+              style: AppStyles.smallTitle,
             ),
             Text(
               'ay kalam',
-              style: TextStyle(fontSize: 10, color: ColorApp.textField),
+              style: AppStyles.subTitle,
             ),
             Text(
               'el message',
-              style: TextStyle(fontSize: 10, color: ColorApp.textField),
+              style: AppStyles.subTitle,
             ),
           ],
         )

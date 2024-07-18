@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
+import '../../constants/app_styles.dart';
+import '../../constants/asset_data.dart';
 import '../../util/validators.dart';
 import '../login screen/widgets/custom_input_field.dart';
 import 'components/chat_info.dart';
@@ -24,15 +27,23 @@ class _MessagesPageState extends State<MessagesPage> {
         children: [
           MyAppBar(
             leading: IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: const Icon(Icons.arrow_back_ios_new_rounded)),
-            widget: const Padding(
-              padding: EdgeInsets.only(left: 27.0),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: const Icon(Icons.arrow_back_ios_new_rounded),
+            ),
+            widget: Padding(
+              padding: const EdgeInsets.only(left: 27.0),
               child: ScreenTitle(
-                title: 'Chats',
-                subtitle: '☺ 2 new messages',
+                title: const Text(
+                  'Chat',
+                  style: AppStyles.bigTitleBold,
+                ),
+                subtitle: const Text(
+                  '☺ 2 new messages',
+                  style: AppStyles.small2TitleBold,
+                ),
+                svgPicture: SvgPicture.asset(AssetData.messagePath),
               ),
             ),
           ),
@@ -54,9 +65,13 @@ class _MessagesPageState extends State<MessagesPage> {
               padding: EdgeInsets.zero,
               itemCount: 20,
               itemBuilder: (context, index) {
-                return const Padding(
-                  padding: EdgeInsets.only(left: 21.0, right: 31.0),
-                  child: ChatInfo(),
+                return Padding(
+                  padding: const EdgeInsets.only(left: 21.0, right: 31.0),
+                  child: GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/Chat');
+                      },
+                      child: const ChatInfo()),
                 );
               },
               separatorBuilder: (BuildContext context, int index) {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gdsc_social_media_app/constants/app_styles.dart';
 
 import '../../../constants/colors.dart';
 
@@ -20,12 +21,13 @@ class VoiceRooms extends StatelessWidget {
               children: [
                 Text(
                   'Voice Rooms',
-                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
+                  style: AppStyles.bigTitleBold,
                 ),
                 Spacer(),
-                Text('More',
-                    style:
-                        TextStyle(fontSize: 16, fontWeight: FontWeight.w700)),
+                Text(
+                  'More',
+                  style: AppStyles.smallTitleBold,
+                ),
               ],
             ),
             Row(

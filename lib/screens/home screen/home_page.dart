@@ -24,10 +24,14 @@ class HomePage extends StatelessWidget {
               Positioned(
                 top: 173,
                 left: 175,
-                child: CircularButton(
-                  icon: Icon(
-                    Icons.add,
-                    color: ColorApp.secondaryText,
+                child: CircleAvatar(
+                  radius: 30,
+                  backgroundColor: ColorApp.secondMainApp,
+                  child: CircularButton(
+                    icon: Icon(
+                      Icons.add,
+                      color: ColorApp.secondaryText,
+                    ),
                   ),
                 ),
               )

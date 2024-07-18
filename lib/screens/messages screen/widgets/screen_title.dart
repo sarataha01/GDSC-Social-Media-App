@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
-import '../../../constants/asset_data.dart';
 import '../../../constants/colors.dart';
 
 class ScreenTitle extends StatelessWidget {
-  final String title;
-  final String subtitle;
+  final Text title;
+  final Text subtitle;
+  final Text? extraline;
+  final Widget svgPicture;
   const ScreenTitle({
     super.key,
     required this.title,
     required this.subtitle,
+    this.extraline,
+    required this.svgPicture,
   });
 
   @override
@@ -21,7 +23,7 @@ class ScreenTitle extends StatelessWidget {
         CircleAvatar(
           backgroundColor: ColorApp.buttonColor,
           radius: 31,
-          child: SvgPicture.asset(AssetData.messagePath),
+          child: svgPicture,
         ),
         const SizedBox(
           width: 16,
@@ -29,19 +31,9 @@ class ScreenTitle extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              title,
-              style: const TextStyle(
-                fontSize: 25,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            Text(
-              subtitle,
-              style: const TextStyle(
-                fontSize: 12,
-              ),
-            )
+            title,
+            subtitle,
+            if (extraline != null) extraline!,
           ],
         )
       ],
