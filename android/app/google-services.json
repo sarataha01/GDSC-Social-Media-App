@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "69053934756",
+    "project_id": "gdsc-social-media-app",
+    "storage_bucket": "gdsc-social-media-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:69053934756:android:ecf3ea6347f1611632ca31",
+        "android_client_info": {
+          "package_name": "com.example.gdsc_social_media_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzEM5ooDEYBSbYjmdMkBUq32bh-V2up1Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

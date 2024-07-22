@@ -4,10 +4,10 @@ import 'package:flutter_svg/svg.dart';
 import '../../constants/app_styles.dart';
 import '../../constants/asset_data.dart';
 import '../../util/validators.dart';
-import '../login screen/widgets/custom_input_field.dart';
+import '../shared widgets/custom_app_bar.dart';
+import '../shared widgets/custom_input_field.dart';
 import 'components/chat_info.dart';
 import 'components/voice_rooms.dart';
-import 'widgets/custom_app_bar.dart';
 import 'widgets/screen_title.dart';
 
 class MessagesPage extends StatefulWidget {

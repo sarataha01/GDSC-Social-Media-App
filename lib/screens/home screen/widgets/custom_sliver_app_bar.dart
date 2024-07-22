@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../constants/asset_data.dart';
 import '../../../constants/clipping/curved_background.dart';
-import '../../login screen/components/app_name.dart';
+import '../../shared components/app_name.dart';
 import '../components/appbar_actions.dart';
 
 class MySliverAppBar extends StatelessWidget {

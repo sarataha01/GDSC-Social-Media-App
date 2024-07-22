@@ -3,8 +3,8 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../constants/asset_data.dart';
 import '../../constants/colors.dart';
-import '../login screen/components/app_name.dart';
 import '../login screen/components/divider.dart';
+import '../shared components/app_name.dart';
 import 'components/other_signup_options.dart';
 import 'components/signup_form.dart';
 

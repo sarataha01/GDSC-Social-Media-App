@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gdsc_social_media_app/constants/colors.dart';
-import 'package:gdsc_social_media_app/screens/home%20screen/widgets/circular_button.dart';
+import 'package:gdsc_social_media_app/screens/shared%20widgets/circular_button.dart';
 
 import '../../constants/app_styles.dart';
 import '../../constants/asset_data.dart';
-import '../messages screen/widgets/custom_app_bar.dart';
 import '../messages screen/widgets/screen_title.dart';
+import '../shared widgets/custom_app_bar.dart';
 
 class ChatPage extends StatelessWidget {
   const ChatPage({super.key});

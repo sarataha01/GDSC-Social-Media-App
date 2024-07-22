@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 import '../../../constants/colors.dart';
 import '../../../util/login_service.dart';
 import '../../../util/validators.dart';
-import '../widgets/custom_button.dart';
-import '../widgets/custom_input_field.dart';
+import '../../shared widgets/custom_button.dart';
+import '../../shared widgets/custom_input_field.dart';
 
-class MyForm extends StatefulWidget {
-  const MyForm({super.key});
+class MyLoginForm extends StatefulWidget {
+  const MyLoginForm({super.key});
 
   @override
-  State<MyForm> createState() => _MyFormState();
+  State<MyLoginForm> createState() => _MyFormState();
 }
 
-class _MyFormState extends State<MyForm> {
-  final TextEditingController usernameCTRL = TextEditingController();
+class _MyFormState extends State<MyLoginForm> {
   final TextEditingController passCTRL = TextEditingController();
+  final TextEditingController usernameCTRL = TextEditingController();
   bool obscure = true;
   final _formKey = GlobalKey<FormState>();
 
@@ -30,7 +30,7 @@ class _MyFormState extends State<MyForm> {
         InputField(
           controller: usernameCTRL,
           prefix: const Icon(
-            Icons.person_2_rounded,
+            Icons.person_rounded,
           ),
           hintText: 'Username',
           validator: (String? input) =>

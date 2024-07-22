@@ -4,7 +4,7 @@ class Validators {
       return 'Input not found.';
     }
     if (input.length <= minCharacters) {
-      return 'Input cannot be less than 5 characters';
+      return 'Input cannot be less than 7 characters';
     }
     return null;
   }

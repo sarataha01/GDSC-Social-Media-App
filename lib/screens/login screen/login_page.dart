@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:gdsc_social_media_app/constants/colors.dart';
 
 import '../../constants/asset_data.dart';
-import 'components/app_name.dart';
+import '../shared components/app_name.dart';
 import 'components/divider.dart';
 import 'components/login_form.dart';
 import 'components/other_login_options.dart';
@@ -34,7 +34,7 @@ class LoginPage extends StatelessWidget {
                   ),
                   sizedBox: 15,
                 ),
-                const MyForm(),
+                const MyLoginForm(),
                 const SizedBox(
                   height: 16,
                 ),

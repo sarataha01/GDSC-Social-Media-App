@@ -3,7 +3,7 @@ import 'package:flutter_svg/svg.dart';
 
 import '../../../constants/asset_data.dart';
 import '../../../constants/colors.dart';
-import '../../login screen/widgets/custom_button.dart';
+import '../../shared widgets/custom_button.dart';
 
 class SignupOptions extends StatelessWidget {
   const SignupOptions({super.key});

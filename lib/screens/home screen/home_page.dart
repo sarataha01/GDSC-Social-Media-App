@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../../constants/colors.dart';
+import '../shared widgets/circular_button.dart';
 import 'components/post_content.dart';
 import 'components/post_interactions.dart';
 import 'components/stories.dart';
 import 'components/user_post_info.dart';
-import 'widgets/circular_button.dart';
 import 'widgets/custom_sliver_app_bar.dart';
 
 class HomePage extends StatelessWidget {
