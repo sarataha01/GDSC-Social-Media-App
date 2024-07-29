@@ -43,20 +43,22 @@ class ChatPage extends StatelessWidget {
                     svgPicture: SvgPicture.asset(AssetData.logo2Path),
                   ),
                   const Spacer(),
-                  const CircularButton(
-                    icon: Icon(
+                  CircularButton(
+                    icon: const Icon(
                       Icons.video_call_rounded,
                       color: ColorApp.secondaryText,
                     ),
+                    onPressed: () {},
                   ),
                   const SizedBox(
                     width: 16,
                   ),
-                  const CircularButton(
-                    icon: Icon(
+                  CircularButton(
+                    icon: const Icon(
                       Icons.phone_rounded,
                       color: ColorApp.secondaryText,
                     ),
+                    onPressed: () {},
                   )
                 ],
               ),

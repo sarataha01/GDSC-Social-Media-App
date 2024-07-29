@@ -13,7 +13,7 @@ class LoginService {
     String username = usernameCTRL.text;
 
     if (formKey.currentState!.validate()) {
-      String foundEmail = await UserServices.getUsername(username);
+      String foundEmail = await UserServices.getEmail(username);
       FirebaseAuth.instance
           .signInWithEmailAndPassword(email: foundEmail, password: password)
           .then((onValue) {

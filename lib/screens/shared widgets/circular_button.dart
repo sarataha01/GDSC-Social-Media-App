@@ -4,9 +4,11 @@ import '../../constants/colors.dart';
 
 class CircularButton extends StatelessWidget {
   final Icon icon;
+  final VoidCallback onPressed;
   const CircularButton({
     super.key,
     required this.icon,
+    required this.onPressed,
   });
 
   @override
@@ -17,7 +19,7 @@ class CircularButton extends StatelessWidget {
         height: 40.0,
         color: ColorApp.buttonColor,
         child: IconButton(
-          onPressed: () {},
+          onPressed: onPressed,
           padding: EdgeInsets.zero,
           icon: icon,
         ),

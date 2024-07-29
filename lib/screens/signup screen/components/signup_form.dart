@@ -15,6 +15,7 @@ class SignupForm extends StatefulWidget {
 
 class _MyFormState extends State<SignupForm> {
   final TextEditingController usernameCTRL = TextEditingController();
+  final TextEditingController nameCTRL = TextEditingController();
   final TextEditingController emailCTRL = TextEditingController();
   final TextEditingController passCTRL = TextEditingController();
   final TextEditingController phoneCTRL = TextEditingController();
@@ -29,6 +30,18 @@ class _MyFormState extends State<SignupForm> {
         children: [
           const SizedBox(
             height: 48,
+          ),
+          InputField(
+            controller: nameCTRL,
+            prefix: const Icon(
+              Icons.account_circle_rounded,
+            ),
+            hintText: 'Display Name',
+            validator: (String? input) =>
+                Validators.checkLengthValidator(input, 7),
+          ),
+          const SizedBox(
+            height: 16,
           ),
           InputField(
             controller: usernameCTRL,
@@ -95,8 +108,8 @@ class _MyFormState extends State<SignupForm> {
             color: ColorApp.buttonColor,
             textColor: ColorApp.secondaryText,
             onPressed: () {
-              SignupService.signup(context, _formKey, usernameCTRL, passCTRL,
-                  phoneCTRL, emailCTRL);
+              SignupService.signup(context, _formKey, nameCTRL, usernameCTRL,
+                  passCTRL, phoneCTRL, emailCTRL);
             },
           ),
         ],

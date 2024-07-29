@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gdsc_social_media_app/models/user_model.dart';
@@ -8,11 +7,13 @@ class SignupService {
   static void signup(
     BuildContext context,
     GlobalKey<FormState> formKey,
+    TextEditingController nameCTRL,
     TextEditingController usernameCTRL,
     TextEditingController passCTRL,
     TextEditingController phoneCTRL,
     TextEditingController emailCTRL,
   ) {
+    String name = nameCTRL.text;
     String email = emailCTRL.text;
     String password = passCTRL.text;
     String username = usernameCTRL.text;
@@ -21,30 +22,23 @@ class SignupService {
     if (formKey.currentState!.validate()) {
       FirebaseAuth.instance
           .createUserWithEmailAndPassword(
-        email: email,
+        email: email.trim(),
         password: password,
       )
           .then((userCreds) {
         UserModel userModel = UserModel(
+          name: name,
           username: username,
           email: email,
           phone: phone,
         );
 
-        final userUid = UserServices.getUserUID();
-        debugPrint('$userUid');
+        final userUid = userCreds.user!.uid;
+        debugPrint('User UID: $userUid');
 
-        FirebaseFirestore.instance
-            .collection('users')
-            .add(userModel.toJson())
-            .whenComplete(() {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Sign up successful')),
-          );
-          Navigator.pushNamed(context, '/Homepage');
-        });
+        UserServices.addUserData(context, userUid, userModel);
       }).catchError((error) {
-        debugPrint('Error: ${error.toString()}');
+        debugPrint('Firebase Auth Error: ${error.toString()}');
       });
     }
   }

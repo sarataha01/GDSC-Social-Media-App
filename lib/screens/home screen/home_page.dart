@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:gdsc_social_media_app/services/post_services.dart';
 
 import '../../constants/colors.dart';
 import '../shared widgets/circular_button.dart';
-import 'components/post_content.dart';
-import 'components/post_interactions.dart';
+import 'components/home_drawer.dart';
+import 'components/post_feed.dart';
 import 'components/stories.dart';
-import 'components/user_post_info.dart';
 import 'widgets/custom_sliver_app_bar.dart';
 
 class HomePage extends StatelessWidget {
@@ -14,11 +14,12 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const MyDrawer(),
       body: CustomScrollView(
         slivers: <Widget>[
-          const MySliverAppBar(
+          MySliverAppBar(
             actions: true,
-            widget: MyStories(),
+            widget: const MyStories(),
             expandedheight: 200,
             overlayWidgets: [
               Positioned(
@@ -28,54 +29,19 @@ class HomePage extends StatelessWidget {
                   radius: 30,
                   backgroundColor: ColorApp.secondMainApp,
                   child: CircularButton(
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.add,
                       color: ColorApp.secondaryText,
                     ),
+                    onPressed: () {
+                      PostServices.userPostInfo();
+                    },
                   ),
                 ),
               )
             ],
           ),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 15.0),
-              child: Column(
-                children: [
-                  for (var i = 0; i <= 20; i++) ...[
-                    const SizedBox(
-                      height: 6,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: ColorApp.mainApp,
-                        borderRadius: BorderRadius.circular(30),
-                      ),
-                      child: const Padding(
-                        padding: EdgeInsets.all(15.0),
-                        child: Column(
-                          children: [
-                            UserPostInfo(),
-                            Padding(
-                              padding: EdgeInsets.only(left: 57.0),
-                              child: PostContent(),
-                            ),
-                            SizedBox(
-                              height: 16,
-                            ),
-                            PostInteractions(),
-                          ],
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 14,
-                    ),
-                  ]
-                ],
-              ),
-            ),
-          ),
+          const PostFeed(),
         ],
       ),
     );

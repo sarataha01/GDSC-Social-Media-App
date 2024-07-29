@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:gdsc_social_media_app/util/get_time.dart';
 
+import '../../../models/post_model.dart';
 import '../../../util/get_avatar.dart';
 
 class UserPostInfo extends StatelessWidget {
+  final PostModel post;
   const UserPostInfo({
     super.key,
+    required this.post,
   });
 
   @override
@@ -21,11 +25,11 @@ class UserPostInfo extends StatelessWidget {
         const SizedBox(
           width: 11,
         ),
-        const Column(
+        Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('data data'),
-            Text('@data  • 3 Hours'),
+            Text(post.name),
+            Text('@${post.userName} • ${TimeCalc.getTimeAgo(post.time)}'),
           ],
         ),
         const Spacer(),

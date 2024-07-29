@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 
 import '../../../constants/colors.dart';
+import '../../../models/post_model.dart';
 
 class PostInteractions extends StatelessWidget {
+  final PostModel post;
+
   const PostInteractions({
     super.key,
+    required this.post,
   });
 
   @override
@@ -26,9 +30,9 @@ class PostInteractions extends StatelessWidget {
                   ),
                   padding: EdgeInsets.zero,
                 ),
-                const Text(
-                  '1.2k',
-                  style: TextStyle(color: ColorApp.textField),
+                Text(
+                  post.likes.toString(),
+                  style: const TextStyle(color: ColorApp.textField),
                 ),
                 IconButton(
                   onPressed: () {},
@@ -38,9 +42,9 @@ class PostInteractions extends StatelessWidget {
                   ),
                   padding: EdgeInsets.zero,
                 ),
-                const Text(
-                  '572',
-                  style: TextStyle(color: ColorApp.textField),
+                Text(
+                  post.comments.toString(),
+                  style: const TextStyle(color: ColorApp.textField),
                 ),
                 IconButton(
                   onPressed: () {},
@@ -50,9 +54,9 @@ class PostInteractions extends StatelessWidget {
                   ),
                   padding: EdgeInsets.zero,
                 ),
-                const Text(
-                  '24',
-                  style: TextStyle(color: ColorApp.textField),
+                Text(
+                  post.shares.toString(),
+                  style: const TextStyle(color: ColorApp.textField),
                 ),
                 const SizedBox(
                   width: 10,

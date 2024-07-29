@@ -5,8 +5,10 @@ import 'package:gdsc_social_media_app/firebase_options.dart';
 import 'package:gdsc_social_media_app/screens/chat%20screen/chat_page.dart';
 import 'package:gdsc_social_media_app/screens/login%20screen/login_page.dart';
 import 'package:gdsc_social_media_app/screens/messages%20screen/messages_page.dart';
+import 'package:gdsc_social_media_app/screens/post%20screen/opened_posted_screen.dart';
 
 import 'screens/home screen/home_page.dart';
+import 'screens/profile screen/profile_page.dart';
 import 'screens/signup screen/signup_page.dart';
 
 Future<void> main() async {
@@ -33,6 +35,8 @@ class App extends StatelessWidget {
         '/Signup': (context) => const SignupPage(),
         '/Messages': (context) => const MessagesPage(),
         '/Chat': (context) => const ChatPage(),
+        '/Post': (context) => const MyPost(),
+        '/Profile': (context) => const ProfilePage(),
       },
       initialRoute: '/Login',
     );

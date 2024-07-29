@@ -30,7 +30,6 @@ class MySliverAppBar extends StatelessWidget {
               child: Column(
                 children: [
                   AppBar(
-                    leading: const DrawerButton(),
                     title: AppName(
                       width: 50,
                       height: 30,
