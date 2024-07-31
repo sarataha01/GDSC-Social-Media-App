@@ -16,4 +16,5 @@ class ColorApp {
   //buttons
   static const Color buttonColor = Color(0xFF004A77);
   static const Color secondButtonColor = Color(0xFF1E1E1E);
+  static const Color important = Color(0xFF980303);
 }

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gdsc_social_media_app/services/post_services.dart';
 
 import '../../constants/colors.dart';
 import '../shared widgets/circular_button.dart';
@@ -34,7 +33,8 @@ class HomePage extends StatelessWidget {
                       color: ColorApp.secondaryText,
                     ),
                     onPressed: () {
-                      PostServices.userPostInfo();
+                      Navigator.pushNamed(context, '/Addpost');
+                      //PostServices.userPostInfo();
                     },
                   ),
                 ),

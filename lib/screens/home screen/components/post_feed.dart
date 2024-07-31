@@ -34,7 +34,12 @@ class PostFeed extends StatelessWidget {
                 final post = posts[index];
                 return Column(
                   children: [
-                    PostContainer(post: post),
+                    GestureDetector(
+                      child: PostContainer(post: post),
+                      onTap: () {
+                        Navigator.pushNamed(context, '/Post');
+                      },
+                    ),
                     const SizedBox(
                       height: 16,
                     )

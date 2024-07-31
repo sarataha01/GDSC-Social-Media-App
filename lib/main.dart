@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:gdsc_social_media_app/constants/colors.dart';
 import 'package:gdsc_social_media_app/firebase_options.dart';
+import 'package:gdsc_social_media_app/screens/add%20post%20screen/add_post_screen.dart';
 import 'package:gdsc_social_media_app/screens/chat%20screen/chat_page.dart';
 import 'package:gdsc_social_media_app/screens/login%20screen/login_page.dart';
 import 'package:gdsc_social_media_app/screens/messages%20screen/messages_page.dart';
@@ -10,6 +11,7 @@ import 'package:gdsc_social_media_app/screens/post%20screen/opened_posted_screen
 import 'screens/home screen/home_page.dart';
 import 'screens/profile screen/profile_page.dart';
 import 'screens/signup screen/signup_page.dart';
+import 'util/save_login.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,8 +39,9 @@ class App extends StatelessWidget {
         '/Chat': (context) => const ChatPage(),
         '/Post': (context) => const MyPost(),
         '/Profile': (context) => const ProfilePage(),
+        '/Addpost': (context) => const AddPost(),
       },
-      initialRoute: '/Login',
+      home: const SaveLogin(),
     );
   }
 }

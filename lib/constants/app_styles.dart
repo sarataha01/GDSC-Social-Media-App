@@ -18,6 +18,18 @@ class AppStyles {
     fontWeight: FontWeight.w700,
   );
 
+  static const TextStyle small3TitleBold = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w700,
+    color: ColorApp.secondaryText,
+  );
+
+  static const TextStyle small4TitleBold = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.w700,
+    color: ColorApp.secondaryText,
+  );
+
   static const TextStyle subTitle = TextStyle(
     fontSize: 10,
     color: ColorApp.textField,

@@ -5,34 +5,6 @@ import 'package:flutter/material.dart';
 import '../models/user_model.dart';
 
 class UserServices {
-  // static Future<Map<String, dynamic>?> getUserData() async {
-  //   String? currentUserId = FirebaseAuth.instance.currentUser?.uid;
-  //
-  //   if (currentUserId != null) {
-  //     DocumentSnapshot<Map<String, dynamic>> userDocument =
-  //         await FirebaseFirestore.instance
-  //             .collection('users')
-  //             .doc(currentUserId)
-  //             .get();
-  //
-  //     if (userDocument.exists) {
-  //       Map<String, dynamic>? userData = userDocument.data();
-  //       return userData;
-  //     } else {
-  //       print('User document does not exist.');
-  //     }
-  //   } else {
-  //     print('No user is currently signed in.');
-  //   }
-  //
-  //   return null;
-  // }
-  //
-  // static Future<String> addUserDataTest() async {
-  //   Map<String, dynamic>? userData = await getUserData();
-  //   return userData?['name'];
-  // }
-
   static Future<String?> getUserUID() async {
     if (FirebaseAuth.instance.currentUser != null) {
       String uid = FirebaseAuth.instance.currentUser!.uid;

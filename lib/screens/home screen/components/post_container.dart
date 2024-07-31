@@ -25,9 +25,9 @@ class PostContainer extends StatelessWidget {
         child: Column(
           children: [
             UserPostInfo(post: post),
-            const Padding(
-              padding: EdgeInsets.only(left: 57.0),
-              child: PostContent(),
+            Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: PostContent(post: post),
             ),
             const SizedBox(
               height: 16,
