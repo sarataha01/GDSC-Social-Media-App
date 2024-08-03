@@ -1,5 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-
 class UserModel {
   final String? uid;
   final String name;
@@ -24,14 +22,13 @@ class UserModel {
     };
   }
 
-  factory UserModel.fromFirestore(DocumentSnapshot<Map<String, dynamic>> doc) {
-    Map<String, dynamic> data = doc.data()!;
+  factory UserModel.fromMap(Map<String, dynamic> data, String documentId) {
     return UserModel(
-      uid: doc.id,
-      name: data['name'],
-      username: data['username'],
-      email: data['email'],
-      phone: data['phone'],
+      uid: documentId,
+      name: data['name'] ?? '',
+      username: data['username'] ?? '',
+      email: data['email'] ?? '',
+      phone: data['phone'] ?? '',
     );
   }
 }

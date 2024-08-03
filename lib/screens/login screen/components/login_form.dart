@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../constants/colors.dart';
-import '../../../util/login_service.dart';
+import '../../../services/login_service.dart';
 import '../../../util/validators.dart';
 import '../../shared widgets/custom_button.dart';
 import '../../shared widgets/custom_input_field.dart';

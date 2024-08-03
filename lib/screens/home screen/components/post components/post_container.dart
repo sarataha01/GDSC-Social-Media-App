@@ -1,7 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../../../constants/colors.dart';
-import '../../../models/post_model.dart';
+import '../../../../constants/colors.dart';
+import '../../../../models/post_model.dart';
 import 'post_content.dart';
 import 'post_interactions.dart';
 import 'user_post_info.dart';
@@ -32,7 +33,10 @@ class PostContainer extends StatelessWidget {
             const SizedBox(
               height: 16,
             ),
-            PostInteractions(post: post),
+            PostInteractions(
+              post: post,
+              currentUserUid: FirebaseAuth.instance.currentUser!.uid,
+            ),
           ],
         ),
       ),

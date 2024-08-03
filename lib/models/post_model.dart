@@ -11,6 +11,7 @@ class PostModel {
   final int likes;
   final int comments;
   final int shares;
+  final List<String> likedBy;
 
   PostModel({
     required this.postId,
@@ -23,6 +24,7 @@ class PostModel {
     required this.likes,
     required this.comments,
     required this.shares,
+    this.likedBy = const [],
   });
 
   Map<String, dynamic> toJson() {
@@ -37,6 +39,7 @@ class PostModel {
       'likes': likes,
       'comments': comments,
       'shares': shares,
+      'likedBy': likedBy,
     };
   }
 
@@ -52,6 +55,7 @@ class PostModel {
       likes: data['likes'] ?? 0,
       comments: data['comments'] ?? 0,
       shares: data['shares'] ?? 0,
+      likedBy: List<String>.from(data['likedBy'] ?? []),
     );
   }
 }

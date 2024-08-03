@@ -2,10 +2,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gdsc_social_media_app/util/get_time.dart';
 
-import '../../../constants/colors.dart';
-import '../../../models/post_model.dart';
-import '../../../services/post_services.dart';
-import '../../../util/get_avatar.dart';
+import '../../../../constants/colors.dart';
+import '../../../../models/post_model.dart';
+import '../../../../services/post_services.dart';
+import '../../../../util/get_avatar.dart';
 
 class UserPostInfo extends StatelessWidget {
   final PostModel post;

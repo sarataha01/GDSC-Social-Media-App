@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../models/post_model.dart';
-import '../../../services/post_services.dart';
+import '../../../../models/post_model.dart';
+import '../../../../services/post_services.dart';
 import 'post_container.dart';
 
 class PostFeed extends StatelessWidget {

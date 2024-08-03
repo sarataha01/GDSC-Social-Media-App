@@ -96,4 +96,15 @@ class UserServices {
       debugPrint("User UID not available. Cannot add user data.");
     }
   }
+
+  static Stream<List<UserModel>> fetchUserStream() {
+    final firestore = FirebaseFirestore.instance;
+    final usersCollection = firestore.collection('users');
+
+    return usersCollection.snapshots().map((querySnapshot) {
+      return querySnapshot.docs.map((doc) {
+        return UserModel.fromMap(doc.data(), doc.id);
+      }).toList();
+    });
+  }
 }

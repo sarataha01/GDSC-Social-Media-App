@@ -9,10 +9,10 @@ class CaptionInputRow extends StatelessWidget {
   final TextEditingController captionController;
 
   const CaptionInputRow({
-    Key? key,
+    super.key,
     required this.file,
     required this.captionController,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

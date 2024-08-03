@@ -29,7 +29,7 @@ class InputField extends StatelessWidget {
         prefixIcon: prefix,
         prefixIconColor: ColorApp.textField,
         suffixIcon: suffix,
-        suffixIconColor: ColorApp.textField,
+        suffixIconColor: ColorApp.secondaryText,
         hintText: hintText,
         hintStyle: const TextStyle(
           fontSize: 16,

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:gdsc_social_media_app/screens/add%20post%20screen/components/back_button.dart';
 
 import '../../constants/app_styles.dart';
 import '../../constants/asset_data.dart';
 import '../../util/validators.dart';
 import '../shared widgets/custom_app_bar.dart';
 import '../shared widgets/custom_input_field.dart';
-import 'components/chat_info.dart';
+import 'components/chat_list.dart';
 import 'components/voice_rooms.dart';
 import 'widgets/screen_title.dart';
 
@@ -26,23 +27,13 @@ class _MessagesPageState extends State<MessagesPage> {
       body: Column(
         children: [
           MyAppBar(
-            leading: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(Icons.arrow_back_ios_new_rounded),
-            ),
+            leading: const CustomBackButton(),
             widget: Padding(
               padding: const EdgeInsets.only(left: 27.0),
               child: ScreenTitle(
-                title: const Text(
-                  'Chat',
-                  style: AppStyles.bigTitleBold,
-                ),
-                subtitle: const Text(
-                  '☺ 2 new messages',
-                  style: AppStyles.small2TitleBold,
-                ),
+                title: const Text('Chat', style: AppStyles.bigTitleBold),
+                subtitle: const Text('☺ 2 new messages',
+                    style: AppStyles.small2TitleBold),
                 svgPicture: SvgPicture.asset(AssetData.messagePath),
               ),
             ),
@@ -60,25 +51,7 @@ class _MessagesPageState extends State<MessagesPage> {
           const SizedBox(
             height: 24,
           ),
-          Expanded(
-            child: ListView.separated(
-              padding: EdgeInsets.zero,
-              itemCount: 20,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.only(left: 21.0, right: 31.0),
-                  child: GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, '/Chat');
-                      },
-                      child: const ChatInfo()),
-                );
-              },
-              separatorBuilder: (BuildContext context, int index) {
-                return const SizedBox(height: 16);
-              },
-            ),
-          ),
+          const ChatList(),
           const VoiceRooms(),
         ],
       ),

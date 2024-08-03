@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:gdsc_social_media_app/constants/app_styles.dart';
 
+import '../../../models/user_model.dart';
 import '../../../util/get_avatar.dart';
 
 class ChatInfo extends StatelessWidget {
-  const ChatInfo({
-    super.key,
-  });
+  final UserModel friendUser;
+  const ChatInfo({super.key, required this.friendUser});
 
   @override
   Widget build(BuildContext context) {
@@ -21,22 +21,22 @@ class ChatInfo extends StatelessWidget {
         const SizedBox(
           width: 8,
         ),
-        const Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'Annyeonghaseyo ',
-              style: AppStyles.smallTitle,
-            ),
-            Text(
-              'ay kalam',
-              style: AppStyles.subTitle,
-            ),
-            Text(
-              'el message',
-              style: AppStyles.subTitle,
-            ),
-          ],
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                friendUser.name,
+                style: AppStyles.smallTitle,
+              ),
+              const Text(
+                'el message hena',
+                style: AppStyles.subTitle,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ],
+          ),
         )
       ],
     );

@@ -1,71 +1,85 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:gdsc_social_media_app/constants/colors.dart';
+import 'package:gdsc_social_media_app/screens/add%20post%20screen/components/back_button.dart';
 import 'package:gdsc_social_media_app/screens/shared%20widgets/circular_button.dart';
+import 'package:gdsc_social_media_app/screens/shared%20widgets/custom_input_field.dart';
+import 'package:gdsc_social_media_app/services/message_services.dart';
 
-import '../../constants/app_styles.dart';
-import '../../constants/asset_data.dart';
-import '../messages screen/widgets/screen_title.dart';
+import '../../models/message_model.dart';
+import '../../models/user_model.dart';
+import '../../util/validators.dart';
 import '../shared widgets/custom_app_bar.dart';
+import 'components/chat_messages.dart';
+import 'components/user_chat_info.dart';
 
-class ChatPage extends StatelessWidget {
+class ChatPage extends StatefulWidget {
   const ChatPage({super.key});
 
   @override
+  State<ChatPage> createState() => _ChatPageState();
+}
+
+class _ChatPageState extends State<ChatPage> {
+  TextEditingController textCTRL = TextEditingController();
+  final User? currentUser = FirebaseAuth.instance.currentUser;
+
+  @override
   Widget build(BuildContext context) {
+    final UserModel receiver =
+        ModalRoute.of(context)!.settings.arguments as UserModel;
+    final String chatId = getChatId(currentUser!.uid, receiver.uid!);
+
     return Scaffold(
+      resizeToAvoidBottomInset: true,
       body: Column(
         children: [
           MyAppBar(
-            leading: IconButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: const Icon(Icons.arrow_back_ios_new_rounded),
-            ),
+            leading: const CustomBackButton(),
             widget: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 27.0),
-              child: Row(
-                children: [
-                  ScreenTitle(
-                    title: const Text(
-                      'Name naaaame',
-                      style: AppStyles.smallTitleBold,
-                    ),
-                    subtitle: const Text(
-                      '@name1234',
-                      style: AppStyles.subTitle,
-                    ),
-                    extraline: const Text(
-                      'active ☺',
-                      style: AppStyles.subTitle,
-                    ),
-                    svgPicture: SvgPicture.asset(AssetData.logo2Path),
-                  ),
-                  const Spacer(),
-                  CircularButton(
-                    icon: const Icon(
-                      Icons.video_call_rounded,
-                      color: ColorApp.secondaryText,
-                    ),
-                    onPressed: () {},
-                  ),
-                  const SizedBox(
-                    width: 16,
-                  ),
-                  CircularButton(
-                    icon: const Icon(
-                      Icons.phone_rounded,
-                      color: ColorApp.secondaryText,
-                    ),
-                    onPressed: () {},
-                  )
-                ],
+              child: UserChatInfo(user: receiver),
+            ),
+          ),
+          ChatMessages(
+              messageServices: MessageServices(),
+              chatId: chatId,
+              currentUser: currentUser),
+          const SizedBox(height: 10),
+          InputField(
+            controller: textCTRL,
+            hintText: 'Message @${receiver.username}',
+            validator: (String? input) =>
+                Validators.checkLengthValidator(input, 1),
+            suffix: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: CircularButton(
+                icon: const Icon(Icons.send_rounded),
+                onPressed: () {
+                  saveMessageAndSend(receiver, chatId);
+                },
               ),
             ),
           ),
+          const SizedBox(height: 10),
         ],
       ),
     );
+  }
+
+  void saveMessageAndSend(UserModel receiver, String chatId) {
+    if (textCTRL.text.trim().isNotEmpty) {
+      final message = MessageModel(
+        senderId: currentUser!.uid,
+        receiverId: receiver.uid!,
+        message: textCTRL.text,
+        timestamp: DateTime.now(),
+      );
+      MessageServices.sendMessage(chatId, message);
+      textCTRL.clear();
+    }
+  }
+
+  String getChatId(String uid1, String uid2) {
+    return uid1.compareTo(uid2) < 0 ? '$uid1-$uid2' : '$uid2-$uid1';
   }
 }

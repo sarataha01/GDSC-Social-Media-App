@@ -65,15 +65,19 @@ class PostServices {
       final postUrl = await StoreToFirebase.uploadImage('User Posts', file);
       await PostServices.userPostInfo(postUrl, caption);
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Post uploaded successfully!')),
-      );
-      Navigator.pop(context);
-      Navigator.pop(context);
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Post uploaded successfully!')),
+        );
+        Navigator.pop(context);
+        Navigator.pop(context);
+      }
     } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error: $e')),
-      );
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Error: $e')),
+        );
+      }
     }
   }
 
@@ -88,5 +92,15 @@ class PostServices {
     } catch (e) {
       throw Exception("Error deleting post: $e");
     }
+  }
+
+  static Future<void> toggleLikes(PostModel post, int likeCount) async {
+    await FirebaseFirestore.instance
+        .collection('User Posts')
+        .doc(post.postId)
+        .update({
+      'likedBy': post.likedBy,
+      'likes': likeCount,
+    });
   }
 }

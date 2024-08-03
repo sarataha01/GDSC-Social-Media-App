@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/material.dart';
 import 'package:uuid/uuid.dart';
 
 class StoreToFirebase {
@@ -16,18 +17,18 @@ class StoreToFirebase {
 
       UploadTask uploadTask = ref.putFile(file);
       uploadTask.snapshotEvents.listen((TaskSnapshot snapshot) {
-        print('Task state: ${snapshot.state}');
-        print(
+        debugPrint('Task state: ${snapshot.state}');
+        debugPrint(
             'Progress: ${(snapshot.bytesTransferred / snapshot.totalBytes) * 100} %');
       }, onError: (e) {
-        print('Error: $e');
+        debugPrint('Error: $e');
       });
       TaskSnapshot snapshot = await uploadTask;
       String downloadUrl = await snapshot.ref.getDownloadURL();
       return downloadUrl;
     } catch (e) {
-      print('Error in uploadImage: $e');
-      rethrow; // Rethrow the exception if necessary
+      debugPrint('Error in uploadImage: $e');
+      rethrow;
     }
   }
 }

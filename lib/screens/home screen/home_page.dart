@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../constants/colors.dart';
 import '../shared widgets/circular_button.dart';
 import 'components/home_drawer.dart';
-import 'components/post_feed.dart';
+import 'components/post components/post_feed.dart';
 import 'components/stories.dart';
 import 'widgets/custom_sliver_app_bar.dart';
 
