@@ -42,14 +42,18 @@ class UserPostInfo extends StatelessWidget {
                   try {
                     await PostServices.deletePost(post.postId);
                     debugPrint('post id: ${post.postId}');
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                          content: Text('Post deleted successfully.')),
-                    );
+                    if (context.mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                            content: Text('Post deleted successfully.')),
+                      );
+                    }
                   } catch (e) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Error: ${e.toString()}')),
-                    );
+                    if (context.mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('Error: ${e.toString()}')),
+                      );
+                    }
                     debugPrint('Error deleting post: $e');
                   }
                 },

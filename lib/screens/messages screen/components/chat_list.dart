@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:gdsc_social_media_app/util/get_chat_id.dart';
 
 import '../../../models/user_model.dart';
 import '../../../services/user_services.dart';
@@ -11,6 +13,7 @@ class ChatList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentUser = FirebaseAuth.instance.currentUser;
     return Expanded(
       child: StreamBuilder<List<UserModel>>(
         stream: UserServices.fetchUserStream(),
@@ -29,6 +32,8 @@ class ChatList extends StatelessWidget {
             itemCount: users.length,
             itemBuilder: (context, index) {
               final friendUser = users[index];
+              final String chatId =
+                  ChatId.getChatId(currentUser!.uid, friendUser.uid!);
               return Padding(
                 padding: const EdgeInsets.only(left: 21.0, right: 31.0),
                 child: GestureDetector(
@@ -37,9 +42,9 @@ class ChatList extends StatelessWidget {
                       context,
                       '/Chat',
                       arguments: friendUser,
-                    );
+                    ); // Navigates to ChatPage()
                   },
-                  child: ChatInfo(friendUser: friendUser),
+                  child: ChatInfo(friendUser: friendUser, chatId: chatId),
                 ),
               );
             },

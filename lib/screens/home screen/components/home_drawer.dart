@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:gdsc_social_media_app/constants/colors.dart';
+import 'package:gdsc_social_media_app/services/user_services.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({
@@ -10,6 +12,7 @@ class MyDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Drawer(
+        backgroundColor: ColorApp.mainApp,
         child: SizedBox(
           height: double.infinity,
           child: Column(
@@ -17,8 +20,8 @@ class MyDrawer extends StatelessWidget {
               ListTile(
                 leading: const Icon(Icons.person),
                 title: const Text('Profile'),
-                onTap: () {
-                  Navigator.of(context).pushNamed('/Profile');
+                onTap: () async {
+                  await UserServices.getAllInfo(context);
                 },
               ),
               ListTile(

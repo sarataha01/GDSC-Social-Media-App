@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:gdsc_social_media_app/screens/add%20post%20screen/components/back_button.dart';
+import 'package:gdsc_social_media_app/screens/shared%20components/back_button.dart';
 
 import '../../constants/app_styles.dart';
 import '../../constants/asset_data.dart';

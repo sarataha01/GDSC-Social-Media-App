@@ -1,9 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:gdsc_social_media_app/screens/add%20post%20screen/components/back_button.dart';
+import 'package:gdsc_social_media_app/screens/shared%20components/back_button.dart';
 import 'package:gdsc_social_media_app/screens/shared%20widgets/circular_button.dart';
 import 'package:gdsc_social_media_app/screens/shared%20widgets/custom_input_field.dart';
 import 'package:gdsc_social_media_app/services/message_services.dart';
+import 'package:gdsc_social_media_app/util/get_chat_id.dart';
 
 import '../../models/message_model.dart';
 import '../../models/user_model.dart';
@@ -27,7 +28,7 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     final UserModel receiver =
         ModalRoute.of(context)!.settings.arguments as UserModel;
-    final String chatId = getChatId(currentUser!.uid, receiver.uid!);
+    final String chatId = ChatId.getChatId(currentUser!.uid, receiver.uid!);
 
     return Scaffold(
       resizeToAvoidBottomInset: true,
@@ -77,9 +78,5 @@ class _ChatPageState extends State<ChatPage> {
       MessageServices.sendMessage(chatId, message);
       textCTRL.clear();
     }
-  }
-
-  String getChatId(String uid1, String uid2) {
-    return uid1.compareTo(uid2) < 0 ? '$uid1-$uid2' : '$uid2-$uid1';
   }
 }

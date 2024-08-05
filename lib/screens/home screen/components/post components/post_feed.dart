@@ -35,9 +35,15 @@ class PostFeed extends StatelessWidget {
                 return Column(
                   children: [
                     GestureDetector(
-                      child: PostContainer(post: post),
+                      child: Hero(
+                        tag: 'Selected ${post.postId}',
+                        child: Material(
+                          type: MaterialType.transparency,
+                          child: PostContainer(post: post),
+                        ),
+                      ),
                       onTap: () {
-                        Navigator.pushNamed(context, '/Post');
+                        Navigator.pushNamed(context, '/Post', arguments: post);
                       },
                     ),
                     const SizedBox(

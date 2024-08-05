@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 
 import '../../util/fetch_images_from_gallery.dart';
 import '../add text to post screen/add_text_to_post.dart';
+import '../shared components/back_button.dart';
 import '../shared widgets/custom_app_bar.dart';
-import 'components/back_button.dart';
 import 'components/new_post_section.dart';
 import 'components/recents_section.dart';
 import 'components/select_image_prompt.dart';

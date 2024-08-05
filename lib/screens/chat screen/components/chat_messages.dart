@@ -1,9 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:gdsc_social_media_app/constants/colors.dart';
+import 'package:provider/provider.dart';
 
 import '../../../models/message_model.dart';
+import '../../../providers/message_provider.dart';
 import '../../../services/message_services.dart';
+import 'chat_bubble.dart';
 
 class ChatMessages extends StatelessWidget {
   const ChatMessages({
@@ -31,34 +33,24 @@ class ChatMessages extends StatelessWidget {
           }
           final messages = snapshot.data!
             ..sort((a, b) => b.timestamp.compareTo(a.timestamp));
-
+          if (messages.isNotEmpty) {
+            WidgetsBinding.instance.addPostFrameCallback((_) {
+              final latestMessage = messages.first.message;
+              context.read<MessageProvider>().addMessage(chatId, latestMessage);
+            });
+          }
+          if (messages.isEmpty) {
+            return const Center(
+              child: Text('No messages yet. Start the conversation!'),
+            );
+          }
           return ListView.builder(
             reverse: true,
             itemCount: messages.length,
             itemBuilder: (context, index) {
               final message = messages[index];
               final isCurrentUser = message.senderId == currentUser!.uid;
-              return Align(
-                alignment: isCurrentUser
-                    ? Alignment.centerRight
-                    : Alignment.centerLeft,
-                child: Container(
-                  margin: const EdgeInsets.symmetric(
-                      vertical: 5.0, horizontal: 8.0),
-                  padding: const EdgeInsets.all(12.0),
-                  decoration: BoxDecoration(
-                    color:
-                        isCurrentUser ? ColorApp.buttonColor : ColorApp.mainApp,
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  child: Text(
-                    message.message,
-                    style: const TextStyle(
-                      color: ColorApp.secondaryText,
-                    ),
-                  ),
-                ),
-              );
+              return ChatBubble(isCurrentUser: isCurrentUser, message: message);
             },
           );
         },

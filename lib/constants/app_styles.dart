@@ -35,6 +35,11 @@ class AppStyles {
     color: ColorApp.textField,
   );
 
+  static const TextStyle subTitle2 = TextStyle(
+    fontSize: 12,
+    color: ColorApp.textField,
+  );
+
   static const TextStyle bigTitleBold = TextStyle(
     fontSize: 25,
     fontWeight: FontWeight.w700,

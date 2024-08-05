@@ -77,6 +77,26 @@ class UserServices {
     }
   }
 
+  static Future<String> getPhone(String email) async {
+    try {
+      final collection = FirebaseFirestore.instance.collection('users');
+      final query = await collection.where('email', isEqualTo: email).get();
+
+      if (query.docs.isNotEmpty) {
+        final userDocument = query.docs.first;
+        debugPrint('found');
+        return userDocument.get('phone') ?? 'phone not available';
+      } else {
+        debugPrint('not found phone');
+
+        return 'No phone found';
+      }
+    } catch (e) {
+      debugPrint('Error fetching phone: $e');
+      return 'Error occurred';
+    }
+  }
+
   static void addUserData(BuildContext context, String? uid, UserModel user) {
     if (uid != null) {
       FirebaseFirestore.instance
@@ -106,5 +126,25 @@ class UserServices {
         return UserModel.fromMap(doc.data(), doc.id);
       }).toList();
     });
+  }
+
+  static Future<void> getAllInfo(BuildContext context) async {
+    try {
+      final String email = FirebaseAuth.instance.currentUser!.email!;
+      final name = await UserServices.getName(email);
+      final username = await UserServices.getUsername(email);
+      final phone = await UserServices.getPhone(email);
+      final userModel = UserModel(
+        name: name,
+        username: username,
+        email: email,
+        phone: phone,
+      );
+      if (context.mounted) {
+        Navigator.of(context).pushNamed('/Profile', arguments: userModel);
+      }
+    } catch (e) {
+      print('Error retrieving user data: $e');
+    }
   }
 }

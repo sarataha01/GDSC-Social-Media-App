@@ -45,7 +45,7 @@ class App extends StatelessWidget {
           '/Signup': (context) => const SignupPage(),
           '/Messages': (context) => const MessagesPage(),
           '/Chat': (context) => const ChatPage(),
-          '/Post': (context) => const MyPost(),
+          '/Post': (context) => const OpenedPost(),
           '/Profile': (context) => const ProfilePage(),
           '/Addpost': (context) => const AddPost(),
         },
