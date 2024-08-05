@@ -46,18 +46,21 @@ class _ChatPageState extends State<ChatPage> {
               chatId: chatId,
               currentUser: currentUser),
           const SizedBox(height: 10),
-          InputField(
-            controller: textCTRL,
-            hintText: 'Message @${receiver.username}',
-            validator: (String? input) =>
-                Validators.checkLengthValidator(input, 1),
-            suffix: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: CircularButton(
-                icon: const Icon(Icons.send_rounded),
-                onPressed: () {
-                  saveMessageAndSend(receiver, chatId);
-                },
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            child: InputField(
+              controller: textCTRL,
+              hintText: 'Message @${receiver.username}',
+              validator: (String? input) =>
+                  Validators.checkLengthValidator(input, 1),
+              suffix: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CircularButton(
+                  icon: const Icon(Icons.send_rounded),
+                  onPressed: () {
+                    saveMessageAndSend(receiver, chatId);
+                  },
+                ),
               ),
             ),
           ),

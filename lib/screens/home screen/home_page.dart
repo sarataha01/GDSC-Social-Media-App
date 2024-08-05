@@ -19,11 +19,11 @@ class HomePage extends StatelessWidget {
           MySliverAppBar(
             actions: true,
             widget: const MyStories(),
-            expandedheight: 200,
+            expandedheight: 210,
             overlayWidgets: [
               Positioned(
                 top: 173,
-                left: 175,
+                left: MediaQuery.of(context).size.width / 2 - 30,
                 child: CircleAvatar(
                   radius: 30,
                   backgroundColor: ColorApp.secondMainApp,

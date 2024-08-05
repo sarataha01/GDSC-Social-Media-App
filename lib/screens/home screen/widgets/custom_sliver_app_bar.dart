@@ -23,8 +23,10 @@ class MySliverAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
+      clipBehavior: Clip.none,
       flexibleSpace: FlexibleSpaceBar(
         background: Stack(
+          clipBehavior: Clip.none,
           children: [
             CurvedBackground(
               child: Column(
