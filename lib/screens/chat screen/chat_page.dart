@@ -1,15 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:gdsc_social_media_app/screens/shared%20components/back_button.dart';
-import 'package:gdsc_social_media_app/screens/shared%20widgets/circular_button.dart';
-import 'package:gdsc_social_media_app/screens/shared%20widgets/custom_input_field.dart';
+import 'package:gdsc_social_media_app/core/components/back_button.dart';
+import 'package:gdsc_social_media_app/core/utils/get_chat_id.dart';
+import 'package:gdsc_social_media_app/core/widgets/circular_button.dart';
+import 'package:gdsc_social_media_app/core/widgets/custom_input_field.dart';
 import 'package:gdsc_social_media_app/services/message_services.dart';
-import 'package:gdsc_social_media_app/util/get_chat_id.dart';
 
+import '../../core/entities/user_model.dart';
+import '../../core/utils/validators.dart';
+import '../../core/widgets/custom_app_bar.dart';
 import '../../models/message_model.dart';
-import '../../models/user_model.dart';
-import '../../util/validators.dart';
-import '../shared widgets/custom_app_bar.dart';
 import 'components/chat_messages.dart';
 import 'components/user_chat_info.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../constants/colors.dart';
-import '../shared widgets/circular_button.dart';
+import '../../core/constants/colors.dart';
+import '../../core/widgets/circular_button.dart';
 import 'components/home_drawer.dart';
 import 'components/post components/post_feed.dart';
 import 'components/stories.dart';

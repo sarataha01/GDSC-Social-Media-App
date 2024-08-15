@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../constants/app_styles.dart';
-import '../../../constants/asset_data.dart';
-import '../../../constants/colors.dart';
-import '../../../models/user_model.dart';
+import '../../../core/constants/app_styles.dart';
+import '../../../core/constants/asset_data.dart';
+import '../../../core/constants/colors.dart';
+import '../../../core/entities/user_model.dart';
+import '../../../core/widgets/circular_button.dart';
 import '../../messages screen/widgets/screen_title.dart';
-import '../../shared widgets/circular_button.dart';
 
 class UserChatInfo extends StatelessWidget {
   const UserChatInfo({

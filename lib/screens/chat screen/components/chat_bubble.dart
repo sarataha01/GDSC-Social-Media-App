@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../../constants/colors.dart';
+import '../../../core/constants/colors.dart';
 import '../../../models/message_model.dart';
 
 class ChatBubble extends StatelessWidget {

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../util/get_avatar.dart';
+import '../../../core/utils/get_avatar.dart';
 
 class MyStories extends StatelessWidget {
   const MyStories({

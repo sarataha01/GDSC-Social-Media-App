@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../constants/asset_data.dart';
-import '../../constants/clipping/curved_background.dart';
-import '../home screen/components/appbar_actions.dart';
-import '../shared components/app_name.dart';
+import '../../screens/home screen/components/appbar_actions.dart';
+import '../components/app_name.dart';
+import '../constants/asset_data.dart';
+import '../constants/clipping/curved_background.dart';
 
 class MyAppBar extends StatelessWidget {
   final Widget? leading;

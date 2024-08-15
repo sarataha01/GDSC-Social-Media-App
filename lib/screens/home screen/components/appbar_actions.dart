@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../constants/colors.dart';
+import '../../../core/constants/colors.dart';
 
 class AppbarActions extends StatelessWidget {
   const AppbarActions({

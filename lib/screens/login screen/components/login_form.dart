@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../constants/colors.dart';
+import '../../../core/constants/colors.dart';
+import '../../../core/utils/validators.dart';
+import '../../../core/widgets/custom_button.dart';
+import '../../../core/widgets/custom_input_field.dart';
 import '../../../services/login_service.dart';
-import '../../../util/validators.dart';
-import '../../shared widgets/custom_button.dart';
-import '../../shared widgets/custom_input_field.dart';
 
 class MyLoginForm extends StatefulWidget {
   const MyLoginForm({super.key});

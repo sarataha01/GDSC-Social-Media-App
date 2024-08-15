@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:gdsc_social_media_app/constants/app_styles.dart';
 import 'package:provider/provider.dart';
 
-import '../../../models/user_model.dart';
+import '../../../core/constants/app_styles.dart';
+import '../../../core/entities/user_model.dart';
+import '../../../core/utils/get_avatar.dart';
 import '../../../providers/message_provider.dart';
-import '../../../util/get_avatar.dart';
 
 class ChatInfo extends StatelessWidget {
   final UserModel friendUser;

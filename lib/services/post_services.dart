@@ -4,8 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
+import '../core/utils/share_new_post.dart';
 import '../models/post_model.dart';
-import '../util/share_new_post.dart';
 import 'user_services.dart';
 
 class PostServices {

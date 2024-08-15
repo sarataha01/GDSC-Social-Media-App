@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:gdsc_social_media_app/screens/shared%20components/back_button.dart';
+import 'package:gdsc_social_media_app/core/components/back_button.dart';
 
-import '../../constants/app_styles.dart';
-import '../../constants/asset_data.dart';
-import '../../util/validators.dart';
-import '../shared widgets/custom_app_bar.dart';
-import '../shared widgets/custom_input_field.dart';
+import '../../core/constants/app_styles.dart';
+import '../../core/constants/asset_data.dart';
+import '../../core/utils/validators.dart';
+import '../../core/widgets/custom_app_bar.dart';
+import '../../core/widgets/custom_input_field.dart';
 import 'components/chat_list.dart';
 import 'components/voice_rooms.dart';
 import 'widgets/screen_title.dart';

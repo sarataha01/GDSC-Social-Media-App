@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gdsc_social_media_app/constants/app_styles.dart';
+
+import '../../../core/constants/app_styles.dart';
 
 class RecentSection extends StatelessWidget {
   const RecentSection({

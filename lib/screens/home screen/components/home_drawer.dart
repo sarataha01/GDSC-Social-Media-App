@@ -1,7 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:gdsc_social_media_app/constants/colors.dart';
 import 'package:gdsc_social_media_app/services/user_services.dart';
+
+import '../../../core/constants/colors.dart';
 
 class MyDrawer extends StatelessWidget {
   const MyDrawer({

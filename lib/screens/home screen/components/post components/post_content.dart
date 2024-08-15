@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:gdsc_social_media_app/constants/app_styles.dart';
 
+import '../../../../core/constants/app_styles.dart';
 import '../../../../models/post_model.dart';
 
 class PostContent extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../constants/colors.dart';
+import '../../../../core/constants/colors.dart';
 import '../../../../models/post_model.dart';
 import 'post_content.dart';
 import 'post_interactions.dart';

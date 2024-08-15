@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gdsc_social_media_app/screens/home%20screen/components/post%20components/interaction_count.dart';
 import 'package:gdsc_social_media_app/services/post_services.dart';
 
-import '../../../../constants/colors.dart';
+import '../../../../core/constants/colors.dart';
 import '../../../../models/post_model.dart';
 
 class PostInteractions extends StatefulWidget {

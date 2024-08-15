@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:gdsc_social_media_app/core/components/back_button.dart';
+import 'package:gdsc_social_media_app/core/widgets/custom_app_bar.dart';
 import 'package:gdsc_social_media_app/screens/add%20post%20screen/components/new_post_section.dart';
-import 'package:gdsc_social_media_app/screens/shared%20components/back_button.dart';
-import 'package:gdsc_social_media_app/screens/shared%20widgets/custom_app_bar.dart';
 import 'package:gdsc_social_media_app/services/post_services.dart';
 
 import '../add post screen/components/post_information.dart';

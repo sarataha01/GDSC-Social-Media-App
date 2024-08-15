@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-import '../models/user_model.dart';
+import '../core/entities/user_model.dart';
 
 class UserServices {
   static Future<String?> getUserUID() async {
@@ -97,25 +97,25 @@ class UserServices {
     }
   }
 
-  static void addUserData(BuildContext context, String? uid, UserModel user) {
-    if (uid != null) {
-      FirebaseFirestore.instance
-          .collection('users')
-          .doc(uid)
-          .set(user.toJson())
-          .whenComplete(() {
-        debugPrint("Data inserted for UID: $uid");
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Sign up successful')),
-        );
-        Navigator.pushNamed(context, '/Homepage');
-      }).catchError((error) {
-        debugPrint('Firestore Error: ${error.toString()}');
-      });
-    } else {
-      debugPrint("User UID not available. Cannot add user data.");
-    }
-  }
+  // static void addUserData(BuildContext context, String? uid, UserModel user) {
+  //   if (uid != null) {
+  //     FirebaseFirestore.instance
+  //         .collection('users')
+  //         .doc(uid)
+  //         .set(user.toJson())
+  //         .whenComplete(() {
+  //       debugPrint("Data inserted for UID: $uid");
+  //       ScaffoldMessenger.of(context).showSnackBar(
+  //         const SnackBar(content: Text('Sign up successful')),
+  //       );
+  //       Navigator.pushNamed(context, '/Homepage');
+  //     }).catchError((error) {
+  //       debugPrint('Firestore Error: ${error.toString()}');
+  //     });
+  //   } else {
+  //     debugPrint("User UID not available. Cannot add user data.");
+  //   }
+  // }
 
   static Stream<List<UserModel>> fetchUserStream() {
     final firestore = FirebaseFirestore.instance;

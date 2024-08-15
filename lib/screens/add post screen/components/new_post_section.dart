@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../constants/app_styles.dart';
+import '../../../core/constants/app_styles.dart';
 
 class NewPostSection extends StatelessWidget {
   final VoidCallback onPressed;

@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:gdsc_social_media_app/util/get_chat_id.dart';
+import 'package:gdsc_social_media_app/core/utils/get_chat_id.dart';
 
-import '../../../models/user_model.dart';
+import '../../../core/entities/user_model.dart';
 import '../../../services/user_services.dart';
 import 'chat_info.dart';
 
