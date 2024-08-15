@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../core/components/app_name.dart';
-import '../../core/constants/asset_data.dart';
-import '../../core/constants/colors.dart';
-import 'components/divider.dart';
+import '../../../core/components/app_name.dart';
+import '../../../core/components/divider.dart';
+import '../../../core/constants/asset_data.dart';
+import '../../../core/constants/colors.dart';
 import 'components/login_form.dart';
 import 'components/other_login_options.dart';
 import 'components/register.dart';

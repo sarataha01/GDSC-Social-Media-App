@@ -16,27 +16,6 @@ class UserServices {
     }
   }
 
-  static Future<String> getEmail(String username) async {
-    try {
-      final collection = FirebaseFirestore.instance.collection('users');
-      final query =
-          await collection.where('username', isEqualTo: username).get();
-
-      if (query.docs.isNotEmpty) {
-        final userDocument = query.docs.first;
-        debugPrint('found username');
-        return userDocument.get('email') ?? 'Email not available';
-      } else {
-        debugPrint('not found username');
-
-        return 'No email found';
-      }
-    } catch (e) {
-      debugPrint('Error fetching username: $e');
-      return 'Error occurred';
-    }
-  }
-
   static Future<String> getName(String email) async {
     try {
       final collection = FirebaseFirestore.instance.collection('users');
@@ -96,26 +75,6 @@ class UserServices {
       return 'Error occurred';
     }
   }
-
-  // static void addUserData(BuildContext context, String? uid, UserModel user) {
-  //   if (uid != null) {
-  //     FirebaseFirestore.instance
-  //         .collection('users')
-  //         .doc(uid)
-  //         .set(user.toJson())
-  //         .whenComplete(() {
-  //       debugPrint("Data inserted for UID: $uid");
-  //       ScaffoldMessenger.of(context).showSnackBar(
-  //         const SnackBar(content: Text('Sign up successful')),
-  //       );
-  //       Navigator.pushNamed(context, '/Homepage');
-  //     }).catchError((error) {
-  //       debugPrint('Firestore Error: ${error.toString()}');
-  //     });
-  //   } else {
-  //     debugPrint("User UID not available. Cannot add user data.");
-  //   }
-  // }
 
   static Stream<List<UserModel>> fetchUserStream() {
     final firestore = FirebaseFirestore.instance;

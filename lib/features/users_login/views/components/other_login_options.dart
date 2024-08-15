@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import '../../../core/constants/asset_data.dart';
-import '../../../core/constants/colors.dart';
-import '../../../core/widgets/custom_button.dart';
+import '../../../../core/constants/asset_data.dart';
+import '../../../../core/constants/colors.dart';
+import '../../../../core/widgets/custom_button.dart';
 
 class LoginOptions extends StatelessWidget {
   const LoginOptions({super.key});

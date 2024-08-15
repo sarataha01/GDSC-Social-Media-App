@@ -1,12 +1,14 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:gdsc_social_media_app/features/users_login/data/repositories/users_login_repo.dart';
+import 'package:gdsc_social_media_app/features/users_login/view_models/users_login_view_model.dart';
+import 'package:gdsc_social_media_app/features/users_login/views/login_page.dart';
 import 'package:gdsc_social_media_app/features/users_signup/data/repositories/users_signup_repo.dart';
 import 'package:gdsc_social_media_app/features/users_signup/view_models/users_signup_view_model.dart';
 import 'package:gdsc_social_media_app/firebase_options.dart';
 import 'package:gdsc_social_media_app/providers/message_provider.dart';
 import 'package:gdsc_social_media_app/screens/add%20post%20screen/add_post_screen.dart';
 import 'package:gdsc_social_media_app/screens/chat%20screen/chat_page.dart';
-import 'package:gdsc_social_media_app/screens/login%20screen/login_page.dart';
 import 'package:gdsc_social_media_app/screens/messages%20screen/messages_people_list_page.dart';
 import 'package:gdsc_social_media_app/screens/post%20screen/opened_posted_screen.dart';
 import 'package:provider/provider.dart';
@@ -37,6 +39,9 @@ class App extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (_) => UsersSignupViewModel(UsersSignupRepo()),
+        ),
+        ChangeNotifierProvider(
+          create: (_) => UsersLoginViewModel(UsersLoginRepo()),
         ),
       ],
       child: MaterialApp(

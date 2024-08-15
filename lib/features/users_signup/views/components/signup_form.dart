@@ -31,80 +31,53 @@ class _MyFormState extends State<SignupForm> {
           key: _formKey,
           child: Column(
             children: [
-              const SizedBox(
-                height: 48,
-              ),
+              const SizedBox(height: 48),
               InputField(
-                controller: nameCTRL,
-                prefix: const Icon(
-                  Icons.account_circle_rounded,
-                ),
-                hintText: 'Display Name',
-                validator: (String? input) =>
-                    Validators.checkLengthValidator(input, 7),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
+                  controller: nameCTRL,
+                  prefix: const Icon(Icons.account_circle_rounded),
+                  hintText: 'Display Name',
+                  validator: (String? input) =>
+                      Validators.checkLengthValidator(input, 7)),
+              const SizedBox(height: 16),
               InputField(
-                controller: usernameCTRL,
-                prefix: const Icon(
-                  Icons.person_2_rounded,
-                ),
-                hintText: 'Username',
-                validator: (String? input) =>
-                    Validators.checkLengthValidator(input, 7),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
+                  controller: usernameCTRL,
+                  prefix: const Icon(Icons.person_2_rounded),
+                  hintText: 'Username',
+                  validator: (String? input) =>
+                      Validators.checkLengthValidator(input, 7)),
+              const SizedBox(height: 16),
               InputField(
-                controller: emailCTRL,
-                prefix: const Icon(
-                  Icons.email_rounded,
-                ),
-                hintText: 'Email',
-                validator: (String? input) =>
-                    Validators.checkLengthValidator(input, 7),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
+                  controller: emailCTRL,
+                  prefix: const Icon(Icons.email_rounded),
+                  hintText: 'Email',
+                  validator: (String? input) =>
+                      Validators.checkLengthValidator(input, 7)),
+              const SizedBox(height: 16),
               InputField(
-                controller: phoneCTRL,
-                prefix: const Icon(
-                  Icons.phone_rounded,
-                ),
-                hintText: 'Phone Number',
-                validator: (String? input) =>
-                    Validators.checkLengthValidator(input, 7),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
+                  controller: phoneCTRL,
+                  prefix: const Icon(Icons.phone_rounded),
+                  hintText: 'Phone Number',
+                  validator: (String? input) =>
+                      Validators.checkLengthValidator(input, 7)),
+              const SizedBox(height: 16),
               InputField(
-                controller: passCTRL,
-                obscureText: obscure,
-                prefix: const Icon(
-                  Icons.lock_rounded,
-                ),
-                suffix: IconButton(
-                  onPressed: () {
-                    setState(() {
-                      obscure = !obscure;
-                    });
-                  },
-                  icon: obscure
-                      ? const Icon(Icons.visibility_off)
-                      : const Icon(Icons.visibility),
-                ),
-                hintText: 'Password',
-                validator: (String? input) =>
-                    Validators.checkLengthValidator(input, 7),
-              ),
-              const SizedBox(
-                height: 16,
-              ),
+                  controller: passCTRL,
+                  obscureText: obscure,
+                  prefix: const Icon(Icons.lock_rounded),
+                  suffix: IconButton(
+                    onPressed: () {
+                      setState(() {
+                        obscure = !obscure;
+                      });
+                    },
+                    icon: obscure
+                        ? const Icon(Icons.visibility_off)
+                        : const Icon(Icons.visibility),
+                  ),
+                  hintText: 'Password',
+                  validator: (String? input) =>
+                      Validators.checkLengthValidator(input, 7)),
+              const SizedBox(height: 16),
               CustomButton(
                 text: viewModel.isLoading ? 'Signing Up...' : 'Signup',
                 icon: Icons.arrow_forward,
@@ -112,21 +85,22 @@ class _MyFormState extends State<SignupForm> {
                 textColor: ColorApp.secondaryText,
                 onPressed: () {
                   if (!viewModel.isLoading) {
-                    viewModel.signUp(
-                      context,
-                      _formKey,
-                      nameCTRL,
-                      usernameCTRL,
-                      passCTRL,
-                      phoneCTRL,
-                      emailCTRL,
-                    );
-                  }
+                    viewModel.signUp(context, _formKey, nameCTRL, usernameCTRL,
+                        passCTRL, phoneCTRL, emailCTRL);
 
-                  if (viewModel.failure != null && !viewModel.isLoading) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text('Sign up successful')),
-                    );
+                    if (viewModel.failure == null) {
+                      Future.delayed(const Duration(seconds: 1), () {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                content: Text('Sign up successful')));
+                      });
+                    } else {
+                      Future.delayed(const Duration(seconds: 1), () {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text(viewModel.failure.toString())),
+                        );
+                      });
+                    }
                   }
                 },
               ),
