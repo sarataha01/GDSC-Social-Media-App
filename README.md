@@ -10,23 +10,29 @@ Ensure you have the following installed:
 - A Code Editor (e.g., VS Code, Android Studio)
 ### Steps to install
 1. Clone the project
-   git clone
+   ```git clone```
 2. Install the required dependencies
-   flutter pub get
+   ```flutter pub get```
 3. Run the project
-   flutter run
+   ```flutter run```
 
 ## Login/Signup Screens
 You can create an account or log in to an existing one. This is implemented using Firebase Authentication
 
 <p float="left">
-  <img src="app/login_screen.png" alt="home" width="230"/>
-  <img src="app/signup_screen.png" alt="onboarding" width="230"/>
+  <img src="app/login_screen.png" alt="login" width="230"/>
+  <img src="app/signup_screen.png" alt="signup" width="230"/>
 </p>
 
 ## Home Screen
 Here all the posts from people on the app will appear on your feed.
 Users can like posts, delete only their posts if they no longer want it.
+
+<p float="left">
+  <img src="app/home_screen.png" alt="home" width="230"/>
+  <img src="app/home_screen2.png" alt="home2" width="230"/>
+</p>
+
 
 
 
