@@ -18,12 +18,16 @@ Ensure you have the following installed:
 
 ## Login/Signup Screens
 You can create an account or log in to an existing one. This is implemented using Firebase Authentication
-![image](https://github.com/user-attachments/assets/0e1f8024-5dde-42ac-8e57-6a22428e2841)
-![image](https://github.com/user-attachments/assets/bdfb8629-8aad-4451-a925-8ca1d4a73312)
+
+<p float="left">
+  <img src="app/login_screen.png" alt="home" width="230"/>
+  <img src="app/signup_screen.png" alt="onboarding" width="230"/>
+</p>
 
 ## Home Screen
 Here all the posts from people on the app will appear on your feed.
-Users can like posts, delete only their posts if they no longer want it
+Users can like posts, delete only their posts if they no longer want it.
+
 
 
 
