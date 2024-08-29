@@ -10,10 +10,13 @@ Ensure you have the following installed:
 - A Code Editor (e.g., VS Code, Android Studio)
 ### Steps to install
 1. Clone the project
+
    ```git clone```
-2. Install the required dependencies
+3. Install the required dependencies
+
    ```flutter pub get```
-3. Run the project
+5. Run the project
+
    ```flutter run```
 
 ## Login/Signup Screens
@@ -33,24 +36,29 @@ Users can like posts, delete only their posts if they no longer want it.
   <img src="app/home_screen2.png" alt="home2" width="230"/>
 </p>
 
+You can click on the post to show if there are comments (still will be implemented)
+
+<p float="left">
+  <img src="app/post_section.png" alt="post" width="230"/>
+</p>
+
+## Adding New Posts
+Through the add button in the Home page, the user can post an image with the caption they want.
+This is implemented using Firebase Storage for images, and with askin permission to access the users gallery.
+
+<p float="left">
+  <img src="app/permission.png" alt="permission" width="230"/>
+  <img src="app/post_preview.png" alt="preview" width="230"/>
+   <img src="app/caption.png" alt="caption" width="230"/>
+</p>
+
+## Messages and Chatting
+You can chat with the people you want. This is implemented using Firebase Realtime database
+
+<p float="left">
+  <img src="app/messages.png" alt="messages" width="230"/>
+  <img src="app/chat.png" alt="chat" width="230"/>
+</p>
 
 
 
-
-``` git
-
-
-```
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
